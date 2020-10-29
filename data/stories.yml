@@ -1,0 +1,917 @@
+version: "2.0"
+stories:
+- story: complete path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi
+  - slot_was_set:
+    - location_ok: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine_ok: true  
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budgetmin: 0.0
+    - budgetmax: 300.0
+  - slot_was_set:
+    - budgetmin: 0.0
+    - budgetmax: 300.0   
+  - action: action_search_restaurants
+  - intent: send_email
+  - action: utter_ask_emailid
+  - intent: send_email
+    entities:
+    - email: moulir@gmail.com
+  - slot_was_set:
+    - email: moulir@gmail.com
+  - action: action_send_email
+  - action: utter_goodbye
+- story: location specified
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: action_search_restaurants
+  - intent: affirm
+  - action: utter_goodbye
+- story: complete path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: North Indian
+  - slot_was_set:
+    - cuisine: North Indian
+  - action: action_search_restaurants
+  - action: utter_goodbye
+- story: complete path 3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: italy
+  - slot_was_set:
+    - location: italy
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: action_search_restaurants
+  - intent: goodbye
+  - action: utter_goodbye
+- story: complete path 4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: delhi
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: mumbai
+  - slot_was_set:
+    - location: mumbai
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine_ok: true
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: mumbai
+  - intent: stop
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: mumbai
+  - slot_was_set:
+    - location: mumbai
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: Italian
+  - slot_was_set:
+    - cuisine: Italian
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: mumbai
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+    - location: delhi
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - location: delhi
+  - slot_was_set:
+    - location_ok: true
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: delhi
+  - intent: affirm
+  - action: utter_goodbye
+- story: happy_path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+    - location: mumbai
+  - slot_was_set:
+    - cuisine: italian
+  - slot_was_set:
+    - cuisine_ok: true
+  - slot_was_set:
+    - location: mumbai
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: mumbai
+  - intent: affirm
+  - action: utter_goodbye
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi
+  - slot_was_set:
+    - location_ok: true
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: delhi
+  - intent: affirm
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: mumabi
+  - slot_was_set:
+    - location: mumabi
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: action_search_restaurants
+
+- story: interactive_story_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: mumabi
+  - slot_was_set:
+    - location: mumabi
+  - slot_was_set:
+    - location: mumabi
+  - action: utter_ask_cuisine
+  - intent: stop
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: Jaipur
+  - slot_was_set:
+    - location: Jaipur
+  - slot_was_set:
+    - location_ok: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: Italian
+  - slot_was_set:
+    - cuisine: Italian
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Jaipur
+  - intent: send_email
+  - action: utter_ask_emailid
+  - intent: send_email
+    entities:
+    - mailid: test@gmail.com
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: North Indian
+  - slot_was_set:
+    - cuisine: North Indian
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: Chennai
+  - slot_was_set:
+    - location: Chennai
+  - action: utter_ask_emailid
+  - intent: send_email
+    entities:
+    - test@gmail.com: mailid
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: send_email
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+    - location: chennai
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - location: chennai
+  - action: action_search_restaurants
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+    - location: Pune
+  - slot_was_set:
+    - cuisine: italian
+  - slot_was_set:
+    - location: Pune
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Pune
+  - slot_was_set:
+    - location_ok: true
+  - intent: send_email
+  - action: utter_ask_emailid
+  - intent: send_email
+    entities:
+    - email: moulir@gmail.com
+  - slot_was_set:
+    - email: moulir@gmail.com
+  - action: action_send_email
+  - intent: send_email
+  - action: utter_ask_emailid
+  - intent: send_email
+    entities:
+    - email: moulir@gmail.com
+  - slot_was_set:
+    - email: moulir@gmail.com
+  - action: action_send_email
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: send_email
+  - action: utter_ask_emailid
+  - intent: send_email
+    entities:
+    - email: moulir@gmail.com
+  - slot_was_set:
+    - email: moulir@gmail.com
+  - action: action_send_email
+  - intent: restaurant_search
+    entities:
+    - cuisine: indian
+    - location: chennai
+  - slot_was_set:
+    - cuisine: indian
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - location_ok: true
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: chennai
+  - action: utter_ask_emailid
+  - intent: send_email
+    entities:
+    - email: moulir@gmail.com
+  - slot_was_set:
+    - email: moulir@gmail.com
+  - action: action_send_email
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+    - location: Pune
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - location: Pune
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Pune
+  - action: utter_ask_emailid
+  - intent: send_email
+    entities:
+    - email: moulir@gmail.com
+  - slot_was_set:
+    - email: moulir@gmail.com
+  - action: action_send_email
+  - intent: restaurant_search
+    entities:
+    - cuisine: indian
+    - location: bangalore
+  - slot_was_set:
+    - cuisine: indian
+  - slot_was_set:
+    - location: bangalore
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: bangalore
+  - action: action_send_email
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+    - location: delhi
+  - slot_was_set:
+    - cuisine: italian
+  - slot_was_set:
+    - location: delhi
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: delhi
+  - slot_was_set:
+    - location_ok: true
+  - intent: send_email
+    entities:
+    - email: moulir@gmail.com
+  - slot_was_set:
+    - email: moulir@gmail.com
+  - action: action_send_email
+  - intent: restaurant_search
+    entities:
+    - cuisine: north indian
+    - location: chennai
+  - slot_was_set:
+    - cuisine: north indian
+  - slot_was_set:
+    - location: chennai
+  - action: action_search_restaurants
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+    - location: Pune
+  - slot_was_set:
+    - cuisine: italian
+  - slot_was_set:
+    - location: Pune
+  - action: action_search_restaurants
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+    - location: delhi
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - location: delhi
+  - action: action_search_restaurants
+  - intent: send_email
+  - action: utter_ask_emailid
+  - intent: send_email
+    entities:
+    - email: moulir@gmail.com
+  - slot_was_set:
+    - email: moulir@gmail.com
+  - action: action_send_email
+  - intent: send_email
+    entities:
+    - email: moulir@gmail.com
+  - slot_was_set:
+    - email: moulir@gmail.com
+  - action: action_send_email
+  - intent: send_email
+  - action: utter_ask_emailid
+  - intent: send_email
+    entities:
+    - email: moulir@gmail.com
+  - slot_was_set:
+    - email: moulir@gmail.com
+  - action: action_send_email
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+    - location: chennai
+  - slot_was_set:
+    - cuisine: italian
+  - slot_was_set:
+    - cuisine_ok: true
+  - slot_was_set:
+    - location: chennai
+  - action: action_search_restaurants
+  - intent: restaurant_search
+    entities:
+    - cuisine: south indian
+    - location: chennai
+  - slot_was_set:
+    - cuisine: south indian
+  - slot_was_set:
+    - location: chennai
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - restaurant_exist: true
+  - action: action_send_email
+
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: chennai
+  - slot_was_set:
+    - location: chennai
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: South Indian
+  - slot_was_set:
+    - cuisine: South Indian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budgetmin: '0.0'
+    - budgetmax: '300.0'
+  - slot_was_set:
+    - budgetmax: '300.0'
+  - slot_was_set:
+    - budgetmin: '0.0'
+  - slot_was_set:
+    - budget_ok: true
+  - action: action_search_restaurants
+
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: jaipur
+  - slot_was_set:
+    - location: jaipur
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budgetmin: 300.0
+    - budgetmax: 700.0
+  - slot_was_set:
+    - budgetmax: 700.0
+  - slot_was_set:
+    - budgetmin: 300.0
+  - slot_was_set:
+    - budget_ok: true
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: jaipur
+  - slot_was_set:
+    - restaurant_exist: true
+  - action: utter_ask_emailid
+  - intent: send_email
+    entities:
+    - email: moulir@gmail.com
+  - slot_was_set:
+    - email: moulir@gmail.com
+  - action: action_send_email
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: krishnagiri
+  - slot_was_set:
+    - location: krishnagiri
+  - action: verify_location
+  - action: verify_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_ok: false
+
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+    - location: chennai
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - location: chennai
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budgetmin: 300.0
+    - budgetmax: 700.0
+  - slot_was_set:
+    - budgetmax: 700.0
+  - slot_was_set:
+    - budgetmin: 300.0
+  - slot_was_set:
+    - budget_ok: true
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - restaurant_exist: true
+  - action: utter_ask_email
+  - intent: send_email
+  - action: utter_ask_emailid
+  - intent: send_email
+    entities:
+    - email: moulir@gmail.com
+  - slot_was_set:
+    - email: moulir@gmail.com
+  - action: action_send_email
+
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+    - location: nagpur
+  - slot_was_set:
+    - cuisine: italian
+  - slot_was_set:
+    - cuisine_ok: true
+  - slot_was_set:
+    - location: nagpur
+  - slot_was_set:
+    - location_ok: true
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budgetmin: 300.0
+    - budgetmax: 700.0
+  - slot_was_set:
+    - budgetmax: 700.0
+  - slot_was_set:
+    - budgetmin: 300.0
+  - slot_was_set:
+    - budget_ok: true
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: nagpur
+  - slot_was_set:
+    - restaurant_exist: true
+  - action: utter_ask_email
+  - intent: send_email
+  - action: utter_ask_emailid
+  - intent: send_email
+    entities:
+    - email: moulir@gmail.com
+  - slot_was_set:
+    - email: moulir@gmail.com
+  - action: action_send_email
+
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: chenni
+  - slot_was_set:
+    - location: chenni
+  - action: verify_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_ok: false
+  - intent: restaurant_search
+    entities:
+    - location: bangalore
+  - slot_was_set:
+    - location: bangalore
+  - action: verify_location
+  - slot_was_set:
+    - location: bangalore
+  - slot_was_set:
+    - location_ok: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: Italian
+  - slot_was_set:
+    - cuisine: Italian
+  - slot_was_set:
+    - cuisine_ok: true
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budgetmin: 700.0
+    - budgetmax: 10000.0
+  - slot_was_set:
+    - budgetmax: 10000.0
+  - slot_was_set:
+    - budgetmin: 700.0
+  - slot_was_set:
+    - budget_ok: true
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: bangalore
+  - slot_was_set:
+    - restaurant_exist: true
+  - action: utter_ask_email
+  - intent: send_email
+  - action: utter_ask_emailid
+  - intent: send_email
+    entities:
+    - email: moulir@gmail.com
+  - slot_was_set:
+    - email: moulir@gmail.com
+  - action: action_send_email
+
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: chennai
+  - slot_was_set:
+    - location: chennai
+  - action: verify_location
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - location_ok: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budgetmin: 300.0
+    - budgetmax: 700.0
+  - slot_was_set:
+    - budgetmax: 700.0
+  - slot_was_set:
+    - budgetmin: 300.0
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - restaurant_exist: true
+  - action: utter_ask_email
+  - action: utter_ask_email
+  - intent: send_email
+  - action: utter_ask_emailid
+  - intent: send_email
+    entities:
+    - email: moulir@gmail.com
+  - slot_was_set:
+    - email: moulir@gmail.com
+  - action: action_send_email
+
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: Bangalore
+  - slot_was_set:
+    - location: Bangalore
+  - action: verify_location
+  - slot_was_set:
+    - location: Bangalore
+  - slot_was_set:
+    - location_ok: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: Italian
+  - slot_was_set:
+    - cuisine: Italian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budgetmin: 300.0
+    - budgetmax: 700.0
+  - slot_was_set:
+    - budgetmax: 700.0
+  - slot_was_set:
+    - budgetmin: 300.0
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Bangalore
+  - slot_was_set:
+    - restaurant_exist: true
+  - action: utter_ask_email
+  - action: utter_ask_email
+  - intent: send_email
+  - action: utter_ask_emailid
+  - intent: send_email
+    entities:
+    - email: ravi.sliet@gmail.com
+  - slot_was_set:
+    - email: ravi.sliet@gmail.com
+  - action: action_send_email
+
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: patna
+  - slot_was_set:
+    - location: patna
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budgetmin: 300.0
+    - budgetmax: 700.0
+  - slot_was_set:
+    - budgetmax: 700.0
+  - slot_was_set:
+    - budgetmin: 300.0
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: patna
+  - slot_was_set:
+    - restaurant_exist: true
+  - action: utter_ask_email
+  - action: utter_ask_email
+  - intent: send_email
+    entities:
+    - email: ravi04068887@gmail.com
+  - slot_was_set:
+    - email: ravi04068887@gmail.com
+  - action: action_send_email
+
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: lucknow
+  - slot_was_set:
+    - location: lucknow
+  - action: verify_location
+  - slot_was_set:
+    - location: lucknow
+  - slot_was_set:
+    - location_ok: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: Italian
+  - slot_was_set:
+    - cuisine: Italian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budgetmin: 300.0
+    - budgetmax: 700.0
+  - slot_was_set:
+    - budgetmax: 700.0
+  - slot_was_set:
+    - budgetmin: 300.0
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: lucknow
+  - slot_was_set:
+    - restaurant_exist: true
+  - action: utter_ask_email
+  - action: utter_ask_email
+  - intent: send_email
+    entities:
+    - email: ravi.sliet@gmail.com
+  - slot_was_set:
+    - email: ravi.sliet@gmail.com
+  - action: action_send_email
+
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: chennai
+  - slot_was_set:
+    - location: chennai
+  - action: verify_location
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - location_ok: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: Mexican
+  - slot_was_set:
+    - cuisine: Mexican
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budgetmin: 300.0
+    - budgetmax: 700.0
+  - slot_was_set:
+    - budgetmax: 700.0
+  - slot_was_set:
+    - budgetmin: 300.0
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - restaurant_exist: true
+  - action: utter_ask_email
+  - action: utter_ask_email
+  - intent: send_email
+    entities:
+    - email: moulir@gmail.com
+  - slot_was_set:
+    - email: moulir@gmail.com
+  - action: action_send_email
